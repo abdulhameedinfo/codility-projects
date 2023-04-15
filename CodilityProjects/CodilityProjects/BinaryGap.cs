@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace CodilityProjects
 {
-    public class BinaryGap
+    public class BinaryConverter
     {
-        public BinaryGap(int number)
+        public string ConvertToBinary(int number)
         {
-            var binary = Convert.ToString(number, 2);
+            return Convert.ToString(number, 2);
+        }
+    }
+
+    public class BinaryGapFinder
+    {
+        public int FindMaximumGap(string binary)
+        {
             var gap = 0;
             var searchStartIndex = -1;
 
@@ -33,6 +40,14 @@ namespace CodilityProjects
                 }
             }
 
+            return gap;
+        }
+    }
+
+    public class BinaryGapPrinter
+    {
+        public void PrintMaximumGap(int gap)
+        {
             Console.WriteLine("Maximum gap found: " + gap);
         }
     }
