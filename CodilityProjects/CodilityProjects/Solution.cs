@@ -5,18 +5,22 @@
         //List<int> AllSum = new List<int>();
         public int solution(int[] A)
         {
-            // Implement your solution here
-
-            var minimumDifference = -1;
+            int sum = Sum(A);
+            int leftSum = 0;
+            int minimumDifference = -1;
             for (int mid = 1; mid < A.Length; mid++)
             {
-                int[] firstHalf = A.Take(mid).ToArray();
-                int[] secondHalf = A.Skip(mid).ToArray();
-                var diffrence = Math.Abs(Sum(firstHalf) - Sum(secondHalf));
-                if (diffrence < minimumDifference || minimumDifference == -1) { minimumDifference = diffrence; }
+                leftSum += A[mid - 1];
+                int rightSum = sum - leftSum;
+                int difference = Math.Abs(leftSum - rightSum);
+                if (minimumDifference == -1 || difference < minimumDifference)
+                {
+                    minimumDifference = difference;
+                }
             }
             return minimumDifference;
         }
+
         public int Sum(int[] A)
         {
             int sum = 0;
