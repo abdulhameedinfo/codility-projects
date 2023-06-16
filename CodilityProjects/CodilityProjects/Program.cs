@@ -1,2 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+Solution solution = new Solution();
+int missingPositiveInteger = solution.solution(new int[] { 1, 2, 3 });
+Console.WriteLine(String.Format("Missing positive integer is {0}", missingPositiveInteger));
