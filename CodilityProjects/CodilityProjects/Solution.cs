@@ -1,30 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-// you can also use other imports, for example:
-// using System.Collections.Generic;
-
-// you can write to stdout for debugging purposes, e.g.
-// Console.WriteLine("this is a debug message");
 
 class Solution
 {
     public int solution(int[] A)
     {
-        // Implement your solution here
-        Array.Sort(A);
+        Array.Sort(A); // Sort the array in ascending order
+
         int minPositiveInteger = 1;
-        int missingPositiveInteger = 0;
         foreach (var el in A)
         {
-            if (el != minPositiveInteger)
-                missingPositiveInteger = minPositiveInteger;
-            else
+            if (el == minPositiveInteger)
                 minPositiveInteger++;
-        }
-        if (missingPositiveInteger == 0)
-            missingPositiveInteger = minPositiveInteger;
+            else if (el > minPositiveInteger)
+                break; // Exit the loop if we find a gap
 
-        return missingPositiveInteger;
+            // Ignore negative numbers and duplicates
+        }
+
+        return minPositiveInteger;
     }
 }
+
+
+
+
